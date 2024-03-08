@@ -5,7 +5,7 @@
 set -e
 
 # Define Docker image name
-DOCKER_ID = "gvj74"
+DOCKER_ID="gvj74"
 DOCKER_IMAGE="lbg-my-python-sh:v1"
 
 cleanup() {
