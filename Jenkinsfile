@@ -12,9 +12,6 @@
             steps {
 
                 sh 'docker rm -f $(docker ps -qa) || true'
-
-                sh 'docker network create new-network || true'
-
             }
 
         }
@@ -23,9 +20,6 @@
 
             steps {
                 sh 'docker build -t $DOCKER_USER/docker build -t lbg-my-python:v1 '
-                sh 'docker build -t $DOCKER_USER/task1/flask-app Task1 '
-
-                sh 'docker build -t $DOCKER_USER/task1/mynginx -f Task1/Dockerfile_nginx Task1'
 
             }
 
