@@ -1,19 +1,47 @@
-pipeline {
+
+ pipeline {
     agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh '''
-                
-                '''
-           }
-        }
-        stage('Deploy') {
-            steps {
-                sh '''
-                
-                '''
-            }
-        }
+    environment {
+        DOCKER_USER = "gvj74"
+        MYSQL_ROOT_PASSWORD = "sausages74"
     }
+    stages {
+
+         stage('Init') {
+
+            steps {
+
+                sh 'docker rm -f $(docker ps -qa) || true'
+
+                sh 'docker network create new-network || true'
+
+            }
+
+        }
+
+        stage('Build') {
+
+            steps {
+                sh 'docker build -t $DOCKER_USER/docker build -t lbg-my-python:v1 '
+                sh 'docker build -t $DOCKER_USER/task1/flask-app Task1 '
+
+                sh 'docker build -t $DOCKER_USER/task1/mynginx -f Task1/Dockerfile_nginx Task1'
+
+            }
+
+        }
+
+        stage('Deploy') {
+
+            steps {
+                sh "docker stop \$(docker ps -q) || sleep 1"
+                sh "docker rm \$(docker ps -aq) || sleep 1"
+                sh docker run -d -p 8080:8080 --name lbgContainer $DOCKER_USER/lbg-my-python:v1 
+
+              }
+
+        }
+
+    }
+
 }
