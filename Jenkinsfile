@@ -1,10 +1,6 @@
+pipeline {     
 
- pipeline {
     agent any
-    environment {
-
-
-                }
     stages {
 
          stage('Init') {
