@@ -19,7 +19,7 @@
         stage('Build') {
 
             steps {
-                sh 'docker build -t $DOCKER_USER/docker build -t lbg-my-python:v1 '
+                sh 'docker build -t $DOCKER_USER/docker build -t lbg-my-python:v1 . '
 
             }
 
