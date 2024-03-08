@@ -30,7 +30,7 @@
             steps {
                 sh "docker stop \$(docker ps -q) || sleep 1"
                 sh "docker rm \$(docker ps -aq) || sleep 1"
-                sh "docker run -d -p 8080:8080 --name lbgContainer $DOCKER_USER/lbg-my-python:v1" 
+                sh "docker run -d -p 80:8080 --name lbgContainer $DOCKER_USER/lbg-my-python:v1" 
 
               }
 
