@@ -4,7 +4,7 @@
     environment {
         DOCKER_USER = "gvj74"
         MYSQL_ROOT_PASSWORD = "sausages74"
-    }
+                }
     stages {
 
          stage('Init') {
