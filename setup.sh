@@ -57,7 +57,7 @@ run_docker() {
     echo "Running Docker container..."
 
     sleep 3
-    docker run -d -p 80:$PORT -4 PORT=$PORT --name lbgcontainer  $DOCKER_ID/$DOCKER_IMAGE
+    docker run -d -p 80:$PORT -e PORT=$PORT --name lbgcontainer  $DOCKER_ID/$DOCKER_IMAGE
 
 }
 
