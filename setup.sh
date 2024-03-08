@@ -5,7 +5,7 @@
 set -e
 
 # Define Docker image name
-DOCKER_USER = "gvj74" = "gvj74"
+DOCKER_ID = "gvj74"
 DOCKER_IMAGE="lbg-my-python-sh:v1"
 
 cleanup() {
@@ -32,7 +32,7 @@ build_docker() {
 
     sleep 3
 
-    docker build -t $DOCKER_USER/$DOCKER_IMAGE .
+    docker build -t $DOCKER_ID/$DOCKER_IMAGE .
 
 }
 
@@ -58,7 +58,7 @@ run_docker() {
 
     sleep 3
 
-    docker run -d -p 80:$PORT -e PORT=$PORT $DOCKER_USER/$DOCKER_IMAGE
+    docker run -d -p 80:$PORT -e PORT=$PORT $DOCKER_ID/$DOCKER_IMAGE
 
 }
 
